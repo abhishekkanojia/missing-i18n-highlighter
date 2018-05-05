@@ -1,9 +1,9 @@
-function TranslationHighlighter(data) {
+function MissingI18nHighlighter(data) {
   this.highlightColor      = data.bgcolor;
   this.translationSelector = data.selector;
 }
 
-TranslationHighlighter.prototype.highlightAll = function(elements) {
+MissingI18nHighlighter.prototype.highlightAll = function(elements) {
   var _this = this;
 
   elements.forEach(function(element){
@@ -11,18 +11,18 @@ TranslationHighlighter.prototype.highlightAll = function(elements) {
   });
 };
 
-TranslationHighlighter.prototype.selectAndHighlight = function() {
+MissingI18nHighlighter.prototype.selectAndHighlight = function() {
   var elements = document.querySelectorAll(this.translationSelector);
   this.highlightAll(elements);
 };
 
-TranslationHighlighter.prototype.init = function() {
+MissingI18nHighlighter.prototype.init = function() {
   var _this = this;
   window.addEventListener('load', function() { _this.selectAndHighlight(); });
 };
 
 (function(){
-  var highlighter = new TranslationHighlighter({
+  var highlighter = new MissingI18nHighlighter({
     selector : '.translation_missing',
     bgcolor  : '#ffa500'
   });
