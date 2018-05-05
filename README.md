@@ -1,10 +1,13 @@
 # Missing::I18n::Highlighter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/missing/i18n/highlighter`. To experiment with that code, run `bin/console` for an interactive prompt.
+Missing::I18n::Highlighter highlights missing translations on page with color provided as parameter. Default color is `#ffa500` which is `orange`. It also shows a popup over the translation missing element which can be disabled as described in options below.
 
-TODO: Delete this and the text above, and describe your gem
+## Preview
+Here is how it highlights page with missing translation:
 
-## Installation
+![missing-i18n-highlighter](https://github.com/abhishekkanojia/images/raw/master/missing-translation.png)
+
+## Usage
 
 Add this line to your application's Gemfile:
 
@@ -20,20 +23,30 @@ Or install it yourself as:
 
     $ gem install missing-i18n-highlighter
 
-## Usage
+## Require js and css file
 
-TODO: Write usage instructions here
+In `application.js`
+
+```ruby
+//= require missing_i18n_highlighter
+```
+
+and In `application.css`
+
+```ruby
+*= require missing-i18n-highlighter
+```
+## Yeah That's it ! !
+
+Restart your rails server to see the changes and visit the page you want to highlight missing translations on.
 
 ## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+#### Any new feature you want ??
+create an issue or create a pull request for your feature.
 
 ## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/missing-i18n-highlighter.
+> Make sure you install and configure Js Lint and Align tab to validate js that you write.
+Bug reports and pull requests are welcome on GitHub at https://github.com/abhishekkanojia/missing-i18n-highlighter.
 
 ## License
-
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
