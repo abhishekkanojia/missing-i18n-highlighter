@@ -1,7 +1,13 @@
 function MissingI18nHighlighter(data) {
-  this.highlightColor      = data.bgcolor;
-  this.translationSelector = data.selector;
+  var options = data || {};
+  this.highlightColor      = options.color || MissingI18nHighlighter.DEFAULT.color;
+  this.translationSelector = options.selector || MissingI18nHighlighter.DEFAULT.selector;
 }
+
+MissingI18nHighlighter.DEFAULT = {
+  color    : '#ffa500',
+  selector : '.translation_missing'
+};
 
 MissingI18nHighlighter.prototype.highlightAll = function(elements) {
   var _this = this;
@@ -22,10 +28,8 @@ MissingI18nHighlighter.prototype.init = function() {
 };
 
 (function(){
-  var highlighter = new MissingI18nHighlighter({
-    selector : '.translation_missing',
-    bgcolor  : '#ffa500'
-  });
 
+  var highlighter = new MissingI18nHighlighter();
   highlighter.init();
+
 })();
