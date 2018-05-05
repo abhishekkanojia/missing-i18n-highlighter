@@ -6,7 +6,7 @@ function MissingI18nHighlighter(data) {
 }
 
 MissingI18nHighlighter.DEFAULT = {
-  color    : '#ffa500',
+  color    : '#729adb',
   selector : '.translation_missing'
 };
 
@@ -26,11 +26,15 @@ MissingI18nHighlighter.prototype.createPopup = function() {
 };
 
 MissingI18nHighlighter.prototype.addPopup = function(elements) {
+  var _this = this;
   if(this.showPopup) {
-    var _this = this;
     elements.forEach(function(element){
       element.classList.add(MissingI18nHighlighter.POPUP.wrapperClass);
       element.appendChild(_this.createPopup());
+    });
+  } else {
+    elements.forEach(function(element){
+      element.classList.remove(MissingI18nHighlighter.POPUP.wrapperClass);
     });
   }
 };
