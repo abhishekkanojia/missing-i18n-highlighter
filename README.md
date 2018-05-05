@@ -1,6 +1,6 @@
 # Missing::I18n::Highlighter
 
-Missing::I18n::Highlighter highlights missing translations on page with color provided as parameter. Default color is `#ffa500` which is `orange`. It also shows a popup over the translation missing element which can be disabled as described in options below.
+Missing::I18n::Highlighter highlights missing translations on page with color provided as parameter. Default color is `#729adb` which is `sky blue`. It also shows a popup over the translation missing.
 
 ## Preview
 Here is how it highlights page with missing translation:
@@ -34,8 +34,9 @@ In `application.js`
 and In `application.css`
 
 ```ruby
-*= require missing-i18n-highlighter
+*= require missing_i18n_highlighter
 ```
+
 ## Yeah That's it ! !
 
 Restart your rails server to see the changes and visit the page you want to highlight missing translations on.
