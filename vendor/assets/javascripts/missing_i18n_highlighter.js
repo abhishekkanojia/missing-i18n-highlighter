@@ -1,13 +1,14 @@
 function MissingI18nHighlighter(data) {
   var options              = data || {};
-  this.showPopup           = options.popup !== false;
+  this.showPopup           = MissingI18nHighlighter.DEFAULT.popup;
   this.highlightColor      = options.color || MissingI18nHighlighter.DEFAULT.color;
   this.translationSelector = options.selector || MissingI18nHighlighter.DEFAULT.selector;
 }
 
 MissingI18nHighlighter.DEFAULT = {
   color    : '#729adb',
-  selector : '.translation_missing'
+  selector : '.translation_missing',
+  popup    : true
 };
 
 MissingI18nHighlighter.POPUP = {
@@ -26,15 +27,11 @@ MissingI18nHighlighter.prototype.createPopup = function() {
 };
 
 MissingI18nHighlighter.prototype.addPopup = function(elements) {
-  var _this = this;
   if(this.showPopup) {
+    var _this = this;
     elements.forEach(function(element){
       element.classList.add(MissingI18nHighlighter.POPUP.wrapperClass);
       element.appendChild(_this.createPopup());
-    });
-  } else {
-    elements.forEach(function(element){
-      element.classList.remove(MissingI18nHighlighter.POPUP.wrapperClass);
     });
   }
 };
